@@ -1,0 +1,95 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Vertx swagger open api generation",
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:8080/"
+  } ],
+  "paths" : {
+    "/api/baeldung/articles/article/:id" : {
+      "get" : {
+        "summary" : "Provides status information for a specific upload.",
+        "description" : "",
+        "operationId" : "",
+        "parameters" : [ {
+          "name" : "id"
+        }, {
+          "name" : "uploadID",
+          "in" : "path",
+          "description" : "The ID of the upload unit of work",
+          "required" : true,
+          "allowEmptyValue" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Upload unit of work found.",
+            "headers" : {
+              "Upload-Offset" : {
+                "description" : "How many bytes have been uploaded so far.",
+                "required" : true,
+                "deprecated" : false,
+                "allowEmptyValue" : false
+              },
+              "Upload-Length" : {
+                "description" : "The total length of the upload unit of work.",
+                "required" : true,
+                "deprecated" : false,
+                "allowEmptyValue" : false
+              }
+            },
+            "content" : {
+              "" : {
+                "schema" : {
+                  "example" : ""
+                },
+                "examples" : {
+                  "i0" : {
+                    "summary" : "here you go",
+                    "description" : "kri",
+                    "value" : {
+                      "id" : "1",
+                      "content" : "This is an intro to vertx",
+                      "author" : "baeldung",
+                      "datePublished" : "01-02-2017",
+                      "wordCount" : 1578
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Upload unit of work not found."
+          }
+        },
+        "deprecated" : false
+      }
+    },
+    "/api/baeldung/articles/hello" : {
+      "post" : {
+        "summary" : "Provides post information.",
+        "description" : "",
+        "operationId" : "",
+        "parameters" : [ ],
+        "requestBody" : {
+          "description" : "Created user object",
+          "content" : {
+            "" : {
+              "schema" : {
+                "example" : ""
+              }
+            }
+          }
+        },
+        "responses" : { },
+        "deprecated" : false
+      }
+    }
+  }
+}
